@@ -22,7 +22,6 @@ class SkillsCollectionView: UICollectionView, SkillsCollectionViewDelegate {
         reloadData()
     }
     
-    
     func deleteSkill(at indexPath: IndexPath) {
         Skills.skills.remove(at: indexPath.item)
         reloadData()
@@ -36,7 +35,7 @@ class SkillsCollectionView: UICollectionView, SkillsCollectionViewDelegate {
     private let collectionLayout = UICollectionViewFlowLayout()
     
     weak var skillsDelegate: SkillsCollectionViewDelegate?
-
+    
     var editMode: Bool = false {
         didSet {
             reloadData()
@@ -98,7 +97,7 @@ extension SkillsCollectionView: UICollectionViewDataSource {
         skillsDelegate?.deleteSkill(at: indexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         remove(at: indexPath)
     }
 }

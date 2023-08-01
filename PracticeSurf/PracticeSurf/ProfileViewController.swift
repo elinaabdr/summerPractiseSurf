@@ -9,6 +9,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    private let scrollView = UIScrollView()
     private let profileView = ProfileView()
     private let skillsView = SkillsView()
     private let aboutView = AboutView()
@@ -17,7 +18,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
-        setContraints()
+        setConstraints()
         
         skillsView.delegate = self
     }
@@ -25,9 +26,12 @@ class ProfileViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .white
         
-        view.addSubview(profileView)
-        view.addSubview(skillsView)
-        view.addSubview(aboutView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(profileView)
+        scrollView.addSubview(skillsView)
+        scrollView.addSubview(aboutView)
     }
 }
 
@@ -65,22 +69,30 @@ extension ProfileViewController: SkillsViewDelegate {
     }
 }
 
-//MARK: - set contraints
+//MARK: - set constraints
 extension ProfileViewController {
-    private func setContraints( ){
+    private func setConstraints( ){
         NSLayoutConstraint.activate([
-            profileView.topAnchor.constraint(equalTo: view.topAnchor),
-            profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            profileView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            profileView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            profileView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             
             skillsView.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: 20),
-            skillsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            skillsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            skillsView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            skillsView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             skillsView.heightAnchor.constraint(equalToConstant: 180),
             
             aboutView.topAnchor.constraint(equalTo: skillsView.bottomAnchor, constant: 10),
-            aboutView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            aboutView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            aboutView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            aboutView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            aboutView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+            aboutView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40)
         ])
     }
 }

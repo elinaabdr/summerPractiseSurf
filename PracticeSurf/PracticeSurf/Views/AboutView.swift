@@ -15,7 +15,7 @@ class AboutView: UIView {
                                      alignment: .left,
                                      numberOfLines: 1)
 
-    private let descLabel = UILabel(text: "Hard-working, creative and proactive. Specialised in Programming and Analysis. Ambitious, eager to keep growing and evolving in my profession. Constantly developing new skills and abilities.",
+    private let descLabel = UILabel(text: "Hard-working, creative and proactive. Specialised in Programming and Analysis. Ambitious, eager to keep growing and evolving in my profession. Constantly developing new skills and abilities. \n\ntelegram: @elinaabdr \nemail: abdr.9502@yandex.ru",
                                     font: .systemFontRegular14(),
                                     textColor: .black,
                                     alignment: .left,
