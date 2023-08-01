@@ -8,5 +8,5 @@
 import UIKit
 
 struct Skills {
-    static var skills = ["Swift", "UIKit", "SQL", "Snapshot", "Packages", "Pods", "Firebase", "SwiftUI", "Machine Learning", "C#"]
+    static var skills = ["Swift", "UIKit", "SQL", "Snapshot", "Packages", "Pods", "Firebase", "Figma", "Git", "SwiftUI", "Machine Learning", "C#"]
 }
